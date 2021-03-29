@@ -11,16 +11,18 @@ import {
 } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchProducts } from '../actions';
+import { fetchProducts, fetchTRL } from '../actions';
 import Loading from './Loading';
 
 
 
 function App() {
   const product = useSelector((state) => state?.product);
+  const trl = useSelector(state => state?.trl)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());
+    dispatch(fetchTRL());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -32,7 +34,7 @@ function App() {
           <Navigation />
           <Switch>
             {
-              product?.status === 200 ?
+              product.status && trl.status === 200 ?
                 <Route exact path="/product" component={ProductPage} />
                 :
                 <Loading />
