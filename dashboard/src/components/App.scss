@@ -1,10 +1,12 @@
 @import '../sass/abstracts/variables';
+@import '../sass/abstracts/mixins';
 
 .App > *:not(:first-child) {
 	display: flex;
 	flex-direction: row;
 	height: 90vh;
 }
+
 
 nav {
 	& li {
@@ -134,4 +136,21 @@ section {
 	& img {
 		width: 100%;
 	}
+}
+.welcome {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	@include respond(tab-port){
+		height: 50vh;
+	}
+	
+	& h1 {
+	text-align: center;
+	font-size: 8rem ;
+	@include respond(tab-port){
+		font-size: 6rem ;
+	}
+}
 }

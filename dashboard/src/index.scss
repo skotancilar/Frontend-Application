@@ -9,9 +9,6 @@
 	--select-focus: #e4b302;
 	--select-arrow: var(--select-border);
 }
-.scrollable-element {
-	scrollbar-color: $color-primary $color-grey-light-1;
-}
 
 body {
 	background-color: $color-grey-light-1;
@@ -238,4 +235,8 @@ label {
 
 .select + label {
 	margin-top: 2rem;
+}
+
+.scrollable-element {
+	scrollbar-color: $color-primary $color-grey-light-1;
 }

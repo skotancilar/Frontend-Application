@@ -17,9 +17,8 @@ const ProductPage = () => {
    }, []);
 
    const product = productData.data
-
    return (
-      <section className='scrollable-element'>
+      <section className='col-3-of-4 scrollable-element '>
          <div className='col-2-of-3'>
             <Product product={product ? product : null} trl={trl} />
          </div>

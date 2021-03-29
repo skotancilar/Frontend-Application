@@ -3,8 +3,10 @@
 
 .row {
 	max-width: $grid-width;
+	height: auto;
 	margin: 0 auto;
-
+	display: flex;
+	flex-direction: row;
 	&:not(:last-child) {
 		margin-bottom: $gutter-vertical;
 
@@ -14,21 +16,30 @@
 	}
 
 	@include respond(tab-port) {
-		max-width: 50rem;
+		max-width: 90%;
 		padding: 0 3rem;
+		flex-direction: column;
+		flex-wrap: wrap;
+		align-items: flex-start;
+	}
+	@include respond(phone) {
+		max-width: 100%;
+		padding: 0 3rem;
+		flex-direction: column;
+		flex-wrap: wrap;
 	}
 
 	@include clearfix;
 
 	[class^='col-'] {
 		float: left;
+		
 
 		&:not(:last-child) {
 			margin-right: $gutter-horizontal;
 
 			@include respond(tab-port) {
 				margin-right: 0;
-				margin-bottom: $gutter-vertical-small;
 			}
 		}
 

@@ -1,22 +1,24 @@
 import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 
 export const fetchProducts = () => async dispatch => {
-   const response = await axios.get('http://localhost:8080/https://api-test.innoloft.com/product/6781')
+   const response = await axios.get('https://api-test.innoloft.com/product/6781')
    dispatch({ type: 'FETCH_PRODUCT', payload: response });
 }
 
 export const addAttribute = (item, objectKey) => async (dispatch, getState) => {
-   const randomId = Math.floor(Math.random() * 1000) + 1;
+   const randomId = uuidv4();
    const store = getState().product.data;
-   console.log(objectKey, item);
-   const response = await axios.put('http://localhost:8080/https://api-test.innoloft.com/product/6781',
+   const data = objectKey === 'categories' ? store.categories : store.businessModels;
+
+   const response = await axios.put('https://api-test.innoloft.com/product/6781',
       {
          ...store,
-         [objectKey]: [...store.key, {
+         [objectKey]: [...data, {
             id: randomId,
             name: item
          }]
-      })
+      });
    dispatch({ type: 'ADD_ATTRIBUTE', payload: response });
 }
 

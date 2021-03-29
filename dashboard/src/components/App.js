@@ -1,15 +1,29 @@
-import './App.scss';
 import ProductPage from './ProductPage';
 import Navigation from './Navigation'
+import MainMenu from './MainMenu';
 import Header from './Header';
+import './App.scss';
 import '../sass/base/_utilities.scss'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchProducts } from '../actions';
+import Loading from './Loading';
+
+
 
 function App() {
+  const product = useSelector((state) => state?.product);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchProducts());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <Router>
       <div className="App">
@@ -17,12 +31,13 @@ function App() {
         <div className="row ">
           <Navigation />
           <Switch>
-            <Route exact path="/product" component={ProductPage} />
-            <Route path="/">
-              <section>
-                <h1>Welcome</h1>
-              </section>
-            </Route>
+            {
+              product?.status === 200 ?
+                <Route exact path="/product" component={ProductPage} />
+                :
+                <Loading />
+            }
+            <Route path="/" component={MainMenu} />
           </Switch>
         </div>
       </div>
@@ -31,4 +46,4 @@ function App() {
 }
 
 export default App;
-// cd Frontend-Application/dashboard/node_modules/cors-anywhere/lib/&& npm run start
+// cd node_modules/cors-anywhere/lib/&& npm run start
