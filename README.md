@@ -1,106 +1,70 @@
-# Instructions
+# Getting Started with Create React App
 
-Please stick to the following instructions on how to submit your application:
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-1. Read the whole README
-2. Fork our repository
-3. Add your solution to your repository
-4. Create a pull request to our repository
+## Available Scripts
 
-Also note down in the end how many hours it took to complete (roughly). **Please do not spend more than 6 hours for the whole task.**
+In the project directory, you can run:
 
-Thank you very much!
+### `npm start`
 
-## Main Task
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-You are developing a new dashboard. Your task is to create a new dashboard with which you will be displaying and editing product information following
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-First you have to setup the main dashboard with the main structure:
+### `npm test`
 
-- Header with [Innoloft Logo](https://img.innoloft.de/logo.svg)
-- Navigation
-  - Main Page
-  - Product
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-This structure will be the same on all pages
+### `npm run build`
 
-It's not required that the main page has any content. **But it should be the default page on the root path `/`.**
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### Product Page (`/product`)
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-- Product image
-- Product main info should contain
-  - title
-  - type
-- 2 tab buttons to switch/change the tab content
-  - Description
-  - Attributes
-- Description tab should contain product description
-- Attributes tab should contain:
-  - categories (name only, free text input when adding/editing)
-  - business models (name only, free text input when adding/editing)
-  - [TRL](https://en.wikipedia.org/wiki/Technology_readiness_level) (single choice field)
-- User info should contain:
-  - user image
-  - user name
-  - user company name
-- Map should display company address on Google maps (bonus)
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-For editing follow WYSIWYG methodology. When saving the product a PUT request has to be made to the API. Please keep in mind that the API itself **will not save your request**.
+### `npm run eject`
 
-### Example Mockup
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-![mockup](mockup.jpg)
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-## API
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-In the task you will need to fetch some data from an API. The API base url is `https://api-test.innoloft.com`
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-- Product
-  - GET `/product/6781/`
-  - PUT `/product/6781/`
-- TRL List
-  - GET `/trl/`
+## Learn More
 
-You can also download the [Postman collections](https://api-test.innoloft.com/postman_collection.json).
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## Technical Requirements
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-The application should at the very least use the following:
+### Code Splitting
 
-- React.js framework
-- Redux
-- CSS
-  - Your own CSS structure
-  - **Do not** use any CSS frameworks (f.e. Bootstrap)
-  - A CSS pre-compiler (SASS, LESS, SCSS) or other CSS approaches (CSS modules, Styled components)
-- The dashboard should be responsive. It should **be usable on mobile and tablets**. There are no mockups for mobile and table views, adapt it to your taste.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-When styling, you can decide for yourself what this dashboard should look like (even the structure-wise), make it look as nice as you can.
+### Analyzing the Bundle Size
 
-## Bonus
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-Bonus points are awarded if the styles resemble those of [innoloft.com](https://innoloft.com/home) and could fit as seamlessly as possible within that website.
-Other points that are optional but give additional credit:
+### Making a Progressive Web App
 
-- White-Labeling the application [see section below](#White-Labeling-Bonus)
-- Map (like written in the [main task](#Main-Task))
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-## White-Labeling (Bonus)
+### Advanced Configuration
 
-In this step you will have to apply different configurations to the dashboard. Here you will have to add environment variables (f.e. with a `.env` file). Depending on the `APP_ID` environment variable. If **no** `.env` file is given, make sure to add a fallback to `APP_ID=1`.
-A configuration will look like that:
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-```json
-{
-	"id": 1,
-	"logo": "img.innoloft.de/logo.svg",
-	"mainColor": "#272e71",
-	"hasUserSection": true
-}
-```
+### Deployment
 
-With the api call `/configuration/:appId/` you get the configuration for your `APP_ID`. Possible appIds are `1` and `2`.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-- In case `hasUserSection: false` - hide the user info section on the right.
-- Apply main color to header and other elements to your taste
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
